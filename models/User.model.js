@@ -9,14 +9,7 @@ const userSchema = new Schema(
       required: false,
       unique: true
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true
-    },
-    password: {
+    passwordHash: {
       type: String,
       required: true
     }
@@ -30,3 +23,13 @@ const userSchema = new Schema(
 const User = model("User", userSchema);
 
 module.exports = User;
+
+
+
+    // email: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   lowercase: true,
+    //   trim: true
+    // },
