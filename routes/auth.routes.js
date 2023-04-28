@@ -44,7 +44,7 @@ router.post('/login', async (req, res, next ) => {
       console.log(user)
       if (!!user) {
        if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
-        // cookie session  req.session.user = { user }
+        req.session.user = { username: user.username }
         res.redirect('/profile')
        } else {
         res.render('auth/login', {errorMessage: 'Wrong Password'})
