@@ -7,7 +7,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get('/profile', isLoggedIn, (req, res, next ) => {
+router.get('/profile', isLoggedIn , (req, res, next ) => {
   console.log(req.session)
   res.render('profile', {user: req.session.user} )
 
