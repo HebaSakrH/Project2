@@ -41,7 +41,6 @@ router.get('/login', (req ,res, next ) => {
 router.post('/login', async (req, res, next ) => {
     try {
       const user = await User.findOne({username: req.body.username }) 
-      console.log(user)
       if (!!user) {
        if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
         req.session.user = { username: user.username }
@@ -57,6 +56,14 @@ router.post('/login', async (req, res, next ) => {
     console.log(error) 
     }
 }) 
+
+router.get('/logout', (req , res, next) => {
+req.session.destroy(error => {
+    if(error) next(error)
+    res.redirect('/') 
+});
+
+})
 
 
 

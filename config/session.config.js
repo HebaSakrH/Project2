@@ -17,7 +17,8 @@ app.use(
         // change it later for longer login sessions
       },
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/authIntro',
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/Harry-potions',
+        ttl: 60*60*24
       }),
     })
   )

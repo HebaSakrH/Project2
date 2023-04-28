@@ -12,7 +12,13 @@ const userSchema = new Schema(
     passwordHash: {
       type: String,
       required: true
-    }
+    },
+    // house: {
+    //   type: String,
+    //   enum : [
+    //      "Gryffindor", "Slytherin", "Ravenclaw" , "Hufflepuff"
+    //   ]
+    // }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
