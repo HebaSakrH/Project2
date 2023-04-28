@@ -8,5 +8,16 @@ a {
 }
 
 h1 {
-  color: 15px;
+  size: 20px;
 }
+
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+

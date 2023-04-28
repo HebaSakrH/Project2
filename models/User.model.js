@@ -1,6 +1,14 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
+
+
+// const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+// const randomHouse = houses[Math.floor(Math.random() * houses.length)];
+
+
+
+
 const userSchema = new Schema(
   {
     username: {
@@ -13,6 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: true
     }
+
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
