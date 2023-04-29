@@ -1,0 +1,8 @@
+<h1>All your Potions</h1>
+<ul>
+  <% allPotions.forEach((potion) => { %>
+  <li>
+    <a href=<%- `/potions/${potion.id}` %>><%= potion.title %></a>
+  </li>
+  <% }) %>
+</ul>
