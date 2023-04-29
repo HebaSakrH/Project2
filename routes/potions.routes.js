@@ -16,13 +16,24 @@ router.post("/create", async (req, res, next) => {
       ingredients: req.body.ingredients.split(" "),
     });
     console.log(newPotion);
-    res.redirect(`/potions/${newPotion._id}`);
+    res.redirect("/potions");
   } catch (error) {
     console.log(error);
   }
 });
 
-// route to read potion - CRUD
+// route to see/read potion - CRUD
+// router.get("/:potionId", async (req, res, next) => {
+//   try {
+//     const potion = await Potion.findById(req.params.potionId);
+//     console.log(potion);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+// route
+// finAll()
 
 // route to update potion - CRUD
 
