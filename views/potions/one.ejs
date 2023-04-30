@@ -1,2 +1,32 @@
 <h1>Potion Details</h1>
-<%= title %>
+
+<div>
+  <a href="../profile">Back to profile</a>
+  <% if (query.edit !== 'true') { %>
+    <a href="/potions/<%- potion._id %>?edit=true">Edit Potion</a>
+  <% } %>
+  <a href="/potions/<%- potion._id %>/delete">Delete Potion</a>
+</div>
+
+<!--Quando query edit=true:
+1. esconder boatao edit;
+2. mostrar formulario.
+-->
+<% if (query.edit === 'true') { %>
+<form method="POST" action="/potions/<%- potion._id %>">
+  <label
+    >Title:
+    <input type="text" name="title" value="<%- potion.title %>" required />
+  </label>
+  <label
+    >Ingredients:
+    <input type="text" name="ingredients" value="<%- potion.ingredients %>" required />
+  </label>
+  <label
+    >Difficulty:
+   <input type="text" name="difficulty" value="<%- potion.difficulty %>" required />
+   <button type="submit">Save</button>
+</form>
+<% } else { %>
+  <%= potion.title %>
+<% } %>

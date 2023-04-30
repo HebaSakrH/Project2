@@ -1,24 +1,5 @@
-<h1><%- isUpdating ? 'Update' : 'Create' %>a Potion</h1>
-
-<form method="POST" action="<%- isUpdating ? `/potions/${potion._id}/update` : '/potions/create' %>">
-  <label
-    >Title:
-    <input type="text" name="title" value="<%- isUpdating ? potion.title : '' %>" required />
-  </label>
-  <label
-    >Ingredients:
-    <input type="text" name="ingredients" value="<%- isUpdating ? potion.ingredients.join(' ') : '' %>" required />
-  </label>
-  <label
-    >Difficulty:
-   <input type="text" name="difficulty" value="<%- isUpdating ? potion.difficulty : '' %>"required />
-   <button type="submit">Create</button>
-</form>
-
-
-<!-- <h1>Create Potion</h1> -->
-<!-- Not sure if /views is needed before /potions -->
-<!-- <form method="POST" action="/potions/create">
+<h1>Create Potion</h1>
+<form method="POST" action="/potions/create">
   <label
     >Title:
     <input type="text" name="title" required />
@@ -30,5 +11,13 @@
   <label
     >Difficulty:
    <input type="text" name="difficulty" required />
-   <button type="submit">Create</button>
-</form> -->
+
+   <button type="submit">Save</button>
+</form>
+
+
+
+
+
+
+
