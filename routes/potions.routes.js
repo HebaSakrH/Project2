@@ -13,18 +13,6 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// route to get one potion
-router.get('/:potionId', async (req, res, next) => {
-  try {
-    console.log(req.query)
-    const potion = await Potion.findById(req.params.potionId)
-    res.render('potions/one', { potion: potion, query: req.query })
-    // conditional in case potions is not found in the DB
-  } catch (error) {
-    console.log(error)
-  }
-})
-
 // route to display create potion form
 router.get('/create', (req, res, next) => {
   res.render('potions/create')
@@ -38,6 +26,18 @@ router.post('/create', async (req, res, next) => {
       ingredients: req.body.ingredients.split(' '),
     })
     res.redirect(`/potions/${newPotion._id}`)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+// route to get one potion
+router.get('/:potionId', async (req, res, next) => {
+  try {
+    console.log(req.query)
+    const potion = await Potion.findById(req.params.potionId)
+    res.render('potions/one', { potion: potion, query: req.query })
+    // conditional in case potions is not found in the DB
   } catch (error) {
     console.log(error)
   }
