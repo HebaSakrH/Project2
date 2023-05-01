@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model, default: mongoose } = require('mongoose')
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 
@@ -16,8 +16,10 @@ const potionSchema = new Schema(
       type: String,
       enum: ['any muggle could make it', 'Hogwarts student level', 'professor Snape level'],
     },
-    // add something to know wich user create each potion
-    
+    createdBy: {
+      type: mongoose.Types.ObjectId, 
+      ref: "User"
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

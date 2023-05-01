@@ -11,6 +11,7 @@ router.get("/", (req, res, next) => {
 router.get("/profile", isLoggedIn, async (req, res, next) => {
   let currentUser = await User.findOne({username: req.session.user.username})
   res.render("profile", { user: req.session.user ,  randomHouse: currentUser.house });
+  
 });
 
 router.post('/sort-house', async (req, res, next) => {

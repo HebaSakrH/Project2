@@ -13,18 +13,24 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// route to display create potion form
 router.get('/create', (req, res, next) => {
   res.render('potions/create')
 })
+// route to display create potion form
+// router.get('/create', async (req, res, next) => {
+//   let currentUser = await User.findOne({username: req.session.user.username})
+//   res.render('potions/create', {user: req.session.user } )
+// })
 
 // route to create potion
 router.post('/create', async (req, res, next) => {
   try {
     const newPotion = await Potion.create({
       ...req.body,
-      ingredients: req.body.ingredients.split(' '),
+      
+      ingredients: req.body.ingredients.split(','),
     })
+    console.log("Hello thereee",newPotion)
     res.redirect(`/potions/${newPotion._id}`)
   } catch (error) {
     console.log(error)

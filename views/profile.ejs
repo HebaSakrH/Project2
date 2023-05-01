@@ -1,19 +1,16 @@
-<%- include('./partials/nav.ejs') %>
-<h1>Welcome</h1>
-<h2><%= user.username %></h2>
-
+   <%- include('./partials/nav.ejs') %>
+   <%- include('./partials/searchBar.ejs') %>
+  <h1>Welcome</h1>
+ <h2><%= user.username %></h2>
 <a href="/potions/create">Create Potion</a>
-<a href="/potions">See all Potion</a>
-
-
-<form action="/sort-house" method="POST">
+  <a href="/potions">See all Potion</a>
+   <form action="/sort-house" method="POST">
     <button type="submit">Sort me into a Hogwarts house!</button>
-  </form>
-  
-  
-  <% if (randomHouse) { %>
-    <p>You are in the <%= randomHouse %> house!</p>
-  <% } else { %>
-    <p> Please press the button to sort  </p>
-    <% }  %>
+      </form>
+
+      <% if (randomHouse) { %>
+     <p>You are in the <%= randomHouse %> house!</p>
+   <% } else { %>
+  <p> Please press the button to sort  </p>
+ <% } %>
     
