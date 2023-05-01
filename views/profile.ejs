@@ -1,10 +1,19 @@
+<%- include('./partials/nav.ejs') %>
 <h1>Welcome</h1>
 <h2><%= user.username %></h2>
-<a href="/auth/logout"> Log Out </a>
-<!-- Check if /auth/logout is right! -->
-
-<a href="">Update account</a>
-<a href="">Delete account</a>
 
 <a href="/potions/create">Create Potion</a>
 <a href="/potions">See all Potion</a>
+
+
+<form action="/sort-house" method="POST">
+    <button type="submit">Sort me into a Hogwarts house!</button>
+  </form>
+  
+  
+  <% if (randomHouse) { %>
+    <p>You are in the <%= randomHouse %> house!</p>
+  <% } else { %>
+    <p> Please press the button to sort  </p>
+    <% }  %>
+    

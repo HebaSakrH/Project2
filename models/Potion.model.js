@@ -17,6 +17,7 @@ const potionSchema = new Schema(
       enum: ['any muggle could make it', 'Hogwarts student level', 'professor Snape level'],
     },
     // add something to know wich user create each potion
+    
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

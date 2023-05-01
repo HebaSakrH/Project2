@@ -2,6 +2,7 @@ const express = require('express')
 const User = require('../models/User.model')
 const router = express.Router()
 const bcryptjs = require('bcryptjs')
+const { isLoggedOut } = require("../middleware/route-guard");
 
 const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 
@@ -61,6 +62,7 @@ router.post('/login', async (req, res, next) => {
 })
 
 router.get('/logout', (req, res, next) => {
+  console.log('User logged out')
   req.session.destroy(error => {
     if (error) next(error)
     res.redirect('/')

@@ -1,3 +1,4 @@
+<%- include('../partials/nav.ejs') %>
 <h1>Create Potion</h1>
 <form method="POST" action="/potions/create">
   <label
@@ -10,9 +11,13 @@
   </label>
   <label
     >Difficulty:
-   <input type="text" name="difficulty" required />
-
-   <button type="submit">Save</button>
+    <select name="difficulty">
+      <option value="any muggle could make it"> any muggle could make it</option>
+      <option value="Hogwarts student level">Hogwarts student level</option>
+      <option value="professor Snape level">professor Snape level</option>
+    </select></label
+  >
+  <button type="submit">Create Potion </button>
 </form>
 
 
