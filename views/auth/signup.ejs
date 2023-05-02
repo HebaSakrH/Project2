@@ -1,16 +1,20 @@
 <h1>Signup Page</h1>
-<form method="POST" action="/auth/signup">
-<label
->Username:
-  <input name="username" type="text" required />
-</label>
-<label>
-Password:
-<input name="password" type="text" required />
-</label>
-<button type="submit">Signup</button>
-</form>
+<form method="POST" action="/auth/signup" enctype="multipart/form-data">
+  <label
+    >Username:
+    <input name="username" type="text" required />
+  </label>
+  <label>
+    Password:
+    <input name="password" type="text" required />
+  </label>
+  <label>
+    Profile Image:
+    <input type="file" name="imageUrl" accept="image/png, image/jpg" required />
+  </label>
 
+  <button type="submit">Signup</button>
+</form>
 
 <% if (typeof errorMessage !== 'undefined') { %>
 <p style="color: red"><%= errorMessage %></p>

@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose')
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 
@@ -8,37 +8,34 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: false,
-      unique: true
-      
+      unique: true,
     },
     passwordHash: {
       type: String,
-      required: true
+      required: true,
     },
     house: {
       type: String,
-      enum: ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+      enum: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'],
     },
-
-    imageUrl: String
-
+    imageUrl: {
+      type: String,
+    },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
-    timestamps: true
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
   }
-);
+)
 
-const User = model("User", userSchema);
+const User = model('User', userSchema)
 
-module.exports = User;
+module.exports = User
 
-
-
-    // email: {
-    //   type: String,
-    //   required: true,
-    //   unique: true,
-    //   lowercase: true,
-    //   trim: true
-    // },
+// email: {
+//   type: String,
+//   required: true,
+//   unique: true,
+//   lowercase: true,
+//   trim: true
+// },

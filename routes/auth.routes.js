@@ -2,7 +2,8 @@ const express = require('express')
 const User = require('../models/User.model')
 const router = express.Router()
 const bcryptjs = require('bcryptjs')
-const { isLoggedOut } = require("../middleware/route-guard");
+const { isLoggedOut } = require('../middleware/route-guard')
+const uploader = require('../middleware/cloudinary.config')
 
 const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 
@@ -12,14 +13,19 @@ router.get('/signup', (req, res, next) => {
 })
 
 // route to add user
-router.post('/signup', async (req, res, next) => {
+router.post('/signup', uploader.single('imageUrl'), async (req, res, next) => {
   try {
     const potentialUser = await User.findOne({ username: req.body.username })
     if (!potentialUser) {
       if (pwdRegex.test(req.body.password)) {
         const salt = bcryptjs.genSaltSync(12)
         const passwordHash = bcryptjs.hashSync(req.body.password, salt)
-        const newUser = await User.create({ username: req.body.username, passwordHash })
+
+        const newUser = await User.create({
+          username: req.body.username,
+          passwordHash,
+          imageUrl: req.file.path,
+        })
         res.redirect('/auth/login')
       } else {
         res.render('auth/signup', {
