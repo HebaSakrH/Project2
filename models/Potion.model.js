@@ -17,7 +17,7 @@ const potionSchema = new Schema(
       enum: ['any muggle could make it', 'Hogwarts student level', 'professor Snape level'],
     },
     createdBy: {
-      type: mongoose.Types.ObjectId, 
+      type: Schema.Types.ObjectId, 
       ref: "User"
     }
   },

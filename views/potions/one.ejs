@@ -1,5 +1,5 @@
 <%- include('../partials/nav.ejs') %>
-<%- include('../partials/searchBar.ejs') %>
+<%- include('../partials/search.ejs') %>
 <h1>Potion Details</h1>
 
 <div>
@@ -31,4 +31,7 @@
 </form>
 <% } else { %>
   <%= potion.title %>
+  <%= potion.ingredients %>
+  <%= potion.difficulty %>
+
 <% } %>

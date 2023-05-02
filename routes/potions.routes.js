@@ -1,6 +1,7 @@
 const express = require('express')
-const User = require('../models/Potion.model')
+const User = require('../models/User.model')
 const Potion = require('../models/Potion.model')
+const { isLoggedIn } = require('../middleware/route-guard')
 const router = express.Router()
 
 // route to get all the potions
@@ -16,26 +17,49 @@ router.get('/', async (req, res, next) => {
 router.get('/create', (req, res, next) => {
   res.render('potions/create')
 })
-// route to display create potion form
-// router.get('/create', async (req, res, next) => {
-//   let currentUser = await User.findOne({username: req.session.user.username})
-//   res.render('potions/create', {user: req.session.user } )
-// })
 
 // route to create potion
 router.post('/create', async (req, res, next) => {
   try {
+    let currentUser = await User.findOne({ username: req.session.user.username })
+    console.log('here: ' + currentUser)
     const newPotion = await Potion.create({
       ...req.body,
-      
-      ingredients: req.body.ingredients.split(','),
+      ingredients: req.body.ingredients.split(' '),
+      createdBy: currentUser,
     })
-    console.log("Hello thereee",newPotion)
+    console.log(req.session._id)
     res.redirect(`/potions/${newPotion._id}`)
   } catch (error) {
     console.log(error)
   }
 })
+
+// router.get('/myPotions', isLoggedIn, async (req, res) => {
+//   try {
+//     const userPotions = await Potion.findAll({ createdBy: req.session.user.username });
+//     res.render('myPotions', { userPotions });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+// router.post('/myPotions', async (req, res, next) => {
+//   try {
+//     const userCreatedPotion = await Potion.findAll({ createdBy: req.session.user.username });
+//     console.log("where you at")
+//     res.redirect('/myPotions');
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+
+router.get('/search', async (req, res, next) => {
+  const findPotion = await Potion.find(req.params.title)
+  console.log(findPotion)
+  // res.render('potions/all')
+});
 
 // route to get one potion
 router.get('/:potionId', async (req, res, next) => {

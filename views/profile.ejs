@@ -1,9 +1,11 @@
    <%- include('./partials/nav.ejs') %>
-   <%- include('./partials/searchBar.ejs') %>
+   <%- include('./partials/search.ejs') %>
   <h1>Welcome</h1>
  <h2><%= user.username %></h2>
 <a href="/potions/create">Create Potion</a>
   <a href="/potions">See all Potion</a>
+  <a href="/myPotions">my Potions</a>
+
    <form action="/sort-house" method="POST">
     <button type="submit">Sort me into a Hogwarts house!</button>
       </form>
