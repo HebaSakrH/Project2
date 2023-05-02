@@ -4,11 +4,17 @@
  <h2><%= user.username %></h2>
 <a href="/potions/create">Create Potion</a>
   <a href="/potions">See all Potion</a>
-  <a href="/myPotions">my Potions</a>
 
+  
+        <img src="<%= user.imageUrl %>" alt="image">
    <form action="/sort-house" method="POST">
     <button type="submit">Sort me into a Hogwarts house!</button>
       </form>
+
+      <form method="POST" action="/upload-profile-picture" enctype="multipart/form-data">
+        <input type="file" name="imageUrl" accept="image/png, image/jpg">
+        <button type="submit">Submit</button> 
+    </form>  
 
       <% if (randomHouse) { %>
      <p>You are in the <%= randomHouse %> house!</p>

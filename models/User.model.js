@@ -9,6 +9,7 @@ const userSchema = new Schema(
       trim: true,
       required: false,
       unique: true
+      
     },
     passwordHash: {
       type: String,
@@ -17,7 +18,9 @@ const userSchema = new Schema(
     house: {
       type: String,
       enum: ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
-    }
+    },
+
+    imageUrl: String
 
   },
   {
