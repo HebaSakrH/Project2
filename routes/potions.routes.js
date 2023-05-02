@@ -35,31 +35,17 @@ router.post('/create', async (req, res, next) => {
   }
 })
 
-// router.get('/myPotions', isLoggedIn, async (req, res) => {
-//   try {
-//     const userPotions = await Potion.findAll({ createdBy: req.session.user.username });
-//     res.render('myPotions', { userPotions });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-// router.post('/myPotions', async (req, res, next) => {
-//   try {
-//     const userCreatedPotion = await Potion.findAll({ createdBy: req.session.user.username });
-//     console.log("where you at")
-//     res.redirect('/myPotions');
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-
+//  route to search potion 
 router.get('/search', async (req, res, next) => {
-  const findPotion = await Potion.find(req.params.title)
-  console.log(findPotion)
-  // res.render('potions/all')
-});
+try {
+  console.log("Hello guysss", req.query)
+  const findPotion = await Potion.find({title: req.query.title})
+  console.log("Where are you", findPotion)
+    res.render('potions/search', { findPotion})
+} catch (error) {
+  console.log(error)
+}
+})
 
 // route to get one potion
 router.get('/:potionId', async (req, res, next) => {

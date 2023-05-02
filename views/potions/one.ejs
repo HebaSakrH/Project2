@@ -1,5 +1,5 @@
 <%- include('../partials/nav.ejs') %>
-<%- include('../partials/search.ejs') %>
+<%- include('../partials/search.bar.ejs') %>
 <h1>Potion Details</h1>
 
 <div>
@@ -10,10 +10,7 @@
   <a href="/potions/<%- potion._id %>/delete">Delete Potion</a>
 </div>
 
-<!--Quando query edit=true:
-1. esconder boatao edit;
-2. mostrar formulario.
--->
+
 <% if (query.edit === 'true') { %>
 <form method="POST" action="/potions/<%- potion._id %>">
   <label
@@ -35,3 +32,4 @@
   <%= potion.difficulty %>
 
 <% } %>
+

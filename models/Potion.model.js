@@ -7,10 +7,12 @@ const potionSchema = new Schema(
     title: {
       type: String,
       required: true,
+      trim: true,
     },
     ingredients: {
       type: [String],
       required: true,
+      trim: true,
     },
     difficulty: {
       type: String,

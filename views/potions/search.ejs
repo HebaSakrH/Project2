@@ -1,0 +1,12 @@
+<% if (!findPotion || findPotion.length === 0) { %>
+<p style="color: red"> Potion Does Not Exist but You can Create it!</p>
+<% } else { %>
+<ul>
+  <% findPotion.forEach((potion) => { %>
+  <li><%- potion.title %></li>
+  <p><%- potion.ingredients %></p>
+  <% }) %>
+</ul>
+<% } %> <% if (typeof errorMessage !== 'undefined') { %>
+<p style="color: red"><%= errorMessage %></p>
+<% } %>
