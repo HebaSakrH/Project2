@@ -67,38 +67,6 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
-//GET route to update the user informations 
-router.get("/edit/:editProfile", async (req, res, next) => {
-  try {
-    const userToUpdate = await User.findById(req.params.id)
-    
-    res.render("profile")
-  } catch (error) {
-    console.log(error);
-  }
-})
-
-
-// POST route to update the user informations 
-router.post("/edit/:editProfile", async (req, res, next) => {
-  try {
-    const userToUpdate = await Potion.findByIdAndUpdate(
-      
-      req.params.potionId,
-      {
-        ...req.body,
-        ingredients: req.body.ingredients.split(" "),
-      },
-      { new: true }
-    );
-    res.redirect(`/potions/${editPotion._id}`);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-
-
 router.get('/logout', (req, res, next) => {
   console.log('User logged out')
   req.session.destroy(error => {

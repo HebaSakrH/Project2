@@ -16,7 +16,8 @@ const userSchema = new Schema(
     },
     house: {
       type: String,
-      enum: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'],
+      default: 'No house yet',
+      enum: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin', 'No house yet'],
     },
     imageUrl: {
       type: String,
