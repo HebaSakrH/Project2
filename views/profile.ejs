@@ -8,6 +8,8 @@
 <img src="<%= profilePicture %>" alt="image" />
 <% } %>
 
+
+
 <form action="/sort-house" method="POST">
   <button type="submit">Sort me into a Hogwarts house!</button>
 </form>
@@ -16,4 +18,39 @@
 <p>You are in the <%= randomHouse %> house!</p>
 <% } else { %>
 <p>Please press the button to sort</p>
+<% } %>
+
+
+  
+  <% if (query.edit === 'true') { %>
+    <form method="POST" action="/profile" enctype="multipart/form-data">
+      <label
+        >Username:
+        <input name="username" type="text" required />
+      </label>
+      <label>
+        Password:
+        <input name="password" type="text" required />
+      </label>
+      <label>
+        Profile Image:
+        <input type="file" name="imageUrl" accept="image/png, image/jpg" required />
+      </label>
+    
+      <button type="submit">Signup</button>
+    </form>
+    
+    <% if (typeof errorMessage !== 'undefined') { %>
+    <p style="color: red"><%= errorMessage %></p>
+    <% } %>
+  <% } else { %>
+    <%= potion.title %>
+    <%= potion.ingredients %>
+    <%= potion.difficulty %>
+  <% } %>
+  
+  
+
+<% if (typeof errorMessage !== 'undefined') { %>
+<p style="color: red"><%= errorMessage %></p>
 <% } %>

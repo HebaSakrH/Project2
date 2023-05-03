@@ -18,6 +18,8 @@ router.get('/profile', isLoggedIn, async (req, res, next) => {
   })
 })
 
+
+
 router.post('/sort-house', async (req, res, next) => {
   const houses = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin']
   const randomHouse = houses[Math.floor(Math.random() * houses.length)]
