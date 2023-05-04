@@ -1,13 +1,14 @@
-<%- include('../partials/nav.ejs') %>
-<%- include('../partials/search.bar.ejs') %>
-
-<h1>My Potions</h1>
-<ul>
-  <%  myPotions.forEach((potion) => { %>
-  <li>
-    <a href="/potions/my-potions/<%= potion._id %>" > <%= potion.title %></a>
-  </li>
-  <% }) %>
-</ul>
-
-
+<%- include('../partials/nav.ejs') %> 
+<div class="my-potions-page-background">
+  <div class="my-potions-page">
+    <h1>My Potions</h1>
+    <ul>
+      <% myPotions.forEach((potion) => { %>
+        <li>
+          <a href="/potions/my-potions/<%= potion._id %>"> <%= potion.title %></a>
+        </li>
+        <% }) %>
+      </ul>
+      <%- include('../partials/search.bar.ejs') %>
+  </div>
+</div>

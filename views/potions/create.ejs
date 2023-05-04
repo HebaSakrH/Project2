@@ -1,25 +1,32 @@
 <%- include('../partials/nav.ejs') %>
-<%- include('../partials/search.bar.ejs') %>
-<h1>Create Potion</h1>
-<form method="POST" action="/potions/create">
+<div class="container">
+<h1>Create Potions!</h1>
+<div class="create-form">
+<form  method="POST" action="/potions/create">
   <label
-    >Title:
+    >Title
     <input type="text" name="title" required />
   </label>
+  <br>
   <label
-    >Ingredients:
+    >Ingredients
     <input type="text" name="ingredients" required />
   </label>
+  <br>
   <label
-    >Difficulty:
+    >Difficulty
     <select name="difficulty">
       <option value="any muggle could make it"> any muggle could make it</option>
       <option value="Hogwarts student level">Hogwarts student level</option>
       <option value="professor Snape level">professor Snape level</option>
     </select></label
   >
-  <button type="submit">Create Potion </button>
+  <button  type="submit"> Create Potion </button>
 </form>
+</div>
+</div>
+
+
 
 
 

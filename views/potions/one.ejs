@@ -1,34 +1,34 @@
-<%- include('../partials/nav.ejs') %>
-<%- include('../partials/search.bar.ejs') %>
-<h1>Potion Details</h1>
+<div class="one-page-background">
+  <%- include('../partials/nav.ejs') %> 
 
-<div>
-  <a href="../profile">Back to profile</a>
-  <% if (query.edit !== 'true') { %>
-    <a href="/potions/<%- potion._id %>?edit=true">Edit Potion</a>
-  <% } %>
-  <a href="/potions/<%- potion._id %>/delete">Delete Potion</a>
+  <div class="one-page">
+    <h1>Potion Details</h1>
+
+    <% if (query.edit === 'true') { %>
+    <form method="POST" action="/potions/<%- potion._id %>">
+      <label>Title:</label>
+      <input type="text" name="title" value="<%- potion.title %>" required />
+      <label>Ingredients:</label>
+      <input type="text" name="ingredients" value="<%- potion.ingredients %>" required />
+      <label>Difficulty:</label>
+      <input type="text" name="difficulty" value="<%- potion.difficulty %>" required />
+      <button type="submit">Save</button>
+    </form>
+    <% } else { %>
+    <div class="one-page-potion-background">
+      <h2><%= potion.title %></h2>
+      <h4>Ingredients:</h4>
+      <p><%= potion.ingredients %></p>
+      <h4>Difficulty:</h4>
+      <p><%= potion.difficulty %></p>
+    </div>
+    <% } %>
+
+    <div class="one-page-btns">
+      <% if (query.edit !== 'true') { %>
+      <a href="/potions/<%- potion._id %>?edit=true">Edit Potion</a>
+      <% } %>
+      <a href="/potions/<%- potion._id %>/delete">Delete Potion</a>
+    </div>
+  </div>
 </div>
-
-
-<% if (query.edit === 'true') { %>
-<form method="POST" action="/potions/<%- potion._id %>">
-  <label
-    >Title:
-    <input type="text" name="title" value="<%- potion.title %>" required />
-  </label>
-  <label
-    >Ingredients:
-    <input type="text" name="ingredients" value="<%- potion.ingredients %>" required />
-  </label>
-  <label
-    >Difficulty:
-   <input type="text" name="difficulty" value="<%- potion.difficulty %>" required />
-   <button type="submit">Save</button>
-</form>
-<% } else { %>
-  <%= potion.title %>
-  <%= potion.ingredients %>
-  <%= potion.difficulty %>
-<% } %>
-

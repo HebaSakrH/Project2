@@ -1,21 +1,18 @@
-<h1>Signup Page</h1>
-<form method="POST" action="/auth/signup" enctype="multipart/form-data">
-  <label
-    >Username:
-    <input name="username" type="text" required />
-  </label>
-  <label>
-    Password:
-    <input name="password" type="text" required />
-  </label>
-  <label>
-    Profile Image:
-    <input type="file" name="imageUrl" accept="image/png, image/jpg" required />
-  </label>
+<div class="signup-page">
+  <h1>Signup</h1>
 
-  <button type="submit">Signup</button>
-</form>
+    <form method="POST" action="/auth/signup" enctype="multipart/form-data">
+      <label>Username:</label>
+      <input name="username" type="text" placeholder="name" required />
+      <label>Password:</label>
+      <input name="password" type="text" placeholder="password" required />
+      <label>Profile Image:</label>
+      <input type="file" name="imageUrl" accept="image/png, image/jpg" required />
+      <button type="submit">Signup</button>
+    </form>
 
-<% if (typeof errorMessage !== 'undefined') { %>
-<p style="color: red"><%= errorMessage %></p>
-<% } %>
+    <% if (typeof errorMessage !== 'undefined') { %>
+    <p style="color: red"><%= errorMessage %></p>
+    <% } %>
+  </div>
+</div>

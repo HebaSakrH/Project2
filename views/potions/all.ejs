@@ -1,12 +1,13 @@
 <%- include('../partials/nav.ejs') %>
-<%- include('../partials/search.bar.ejs') %>
-<h1>All Potions</h1>
-<ul>
-  <% allPotions.forEach((potion) => { %>
-  <li>
-    <a href=<%- `/potions/${potion.id}` %>><%= potion.title %></a>
-  </li>
-  <% }) %>
-</ul>
-
+<div class="container">
+  <h1>All Potions</h1>
+  <ul>
+    <% allPotions.forEach((potion) => { %>
+      <li>
+        <a href=<%- `/potions/${potion.id}` %>><%= potion.title %></a>
+      </li>
+      <% }) %>
+    </ul>
+    <%- include('../partials/search.bar.ejs') %>
+  </div>
 
