@@ -1,7 +1,7 @@
 <%- include('../partials/nav.ejs') %>
-<div class="container">
+<div class="loggedin-layout">
 <h1>Create Potions!</h1>
-<div class="create-form">
+
 <form  method="POST" action="/potions/create">
   <label
     >Title
@@ -21,9 +21,11 @@
       <option value="professor Snape level">professor Snape level</option>
     </select></label
   >
-  <button  type="submit"> Create Potion </button>
+  <div class="page-btns">
+    <br>
+  <button type="submit"> Create Potion </button></div>
 </form>
-</div>
+
 </div>
 
 

@@ -1,5 +1,5 @@
 <%- include('./partials/nav.ejs') %>
-<div class="container">
+<div class="profile-container">
   <div id="left">
     <% if (query.edit==='true' ) { %>
     <form method="POST" action="/profile" enctype="multipart/form-data">
@@ -23,24 +23,21 @@
       <a href="/profile?edit=true">Edit Profile</a>
       <% } %>
     </div>
-  
+
     <a href="/potions/create">Create Potion</a>
     <a href="/potions">See all Potion</a>
-    <%- include('./partials/search.bar.ejs') %>
   </div>
-
-  <div class="container-right">
-    <div id="profile-right-container" >
-      <form action="/sort-house" method="POST">
-        <button type="submit">Sort me into a Hogwarts house!</button>
-      </form>
-    <% if (user.randomHouse !==null) { %>
-    <p>You are in the <%= randomHouse %> house!</p>
-    <% } else { %>
-    <p>Please press the button to sort</p>
-    <% } %>
+  <div class="page-btns">
+      <%- include('./partials/search.bar.ejs') %>
+      <% if (user.randomHouse !==null) { %>
+        <p>You are in the <%= randomHouse %> house!</p>
+        <% } else { %>
+          <p>Please press the button to sort</p>
+          <% } %>
+          <form action="/sort-house" method="POST">
+            <button type="submit">Sort me into a Hogwarts house!</button>
+          </form>
   </div>
-</div>
 </div>
 
 <% if (typeof errorMessage !=='undefined' ) { %>
