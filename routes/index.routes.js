@@ -17,6 +17,7 @@ router.get('/profile', isLoggedIn, async (req, res, next) => {
     randomHouse: currentUser.house,
     profilePicture: currentUser.imageUrl,
     query: req.query,
+    
   })
 })
 

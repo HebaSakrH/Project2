@@ -7,6 +7,8 @@ const uploader = require('../middleware/cloudinary.config')
 
 const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 
+
+
 //  route to display sign up
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup')
@@ -47,6 +49,7 @@ router.post('/signup', uploader.single('imageUrl'), async (req, res, next) => {
 //  route to display login
 router.get('/login', (req, res, next) => {
   res.render('auth/login', {})
+  
 })
 //    route to login
 router.post('/login', async (req, res, next) => {
