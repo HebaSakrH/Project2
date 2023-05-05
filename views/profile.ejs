@@ -22,24 +22,23 @@
       <% if (query.edit !=='true' ) { %>
       <a href="/profile?edit=true">Edit Profile</a>
       <% } %>
+      <a href="/potions/create">Create Potion</a>
+      <a href="/potions">See all Potion</a>
+      <%- include('./partials/search.bar.ejs') %>
     </div>
-
-    <a href="/potions/create">Create Potion</a>
-    <a href="/potions">See all Potion</a>
   </div>
   <div class="page-btns">
-      <%- include('./partials/search.bar.ejs') %>
-      <% if (user.randomHouse !==null) { %>
-        <p>You are in the <%= randomHouse %> house!</p>
-        <% } else { %>
-          <p>Please press the button to sort</p>
-          <% } %>
-          <form action="/sort-house" method="POST">
-            <button type="submit">Sort me into a Hogwarts house!</button>
-          </form>
-  </div>
-</div>
-
+    <% if (user.randomHouse !==null) { %>
+      <p>You are in the <%= randomHouse %> house!</p>
+      <% } else { %>
+        <p>Please press the button to sort</p>
+        <% } %>
+        <form action="/sort-house" method="POST">
+          <button type="submit">Sort me into a Hogwarts house!</button>
+        </form>
+      </div>
+    </div>
+    
 <% if (typeof errorMessage !=='undefined' ) { %>
 <p style="color: red"><%= errorMessage %></p>
 <% } %>

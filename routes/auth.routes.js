@@ -12,6 +12,7 @@ const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 //  route to display sign up
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup')
+  
 })
 
 // route to add user

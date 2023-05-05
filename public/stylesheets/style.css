@@ -24,9 +24,30 @@ h4 {
   margin: 0;
 }
 
-h1 {
-  size: 10rem;
+ h1 {
+  background: url(/images/stags.jpeg);
+  font-size: 8rem;
+  margin-bottom: 20px;
   font-family: "harry_pregular";
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color:transparent;
+  animation: animatedOne 30s linear infinite;
+}
+
+@keyframes animatedOne {
+  from {
+      background-position: 0 0;
+  }
+  to {
+      background-position: 100% 0;
+  }
+}
+
+
+#signup-image image {
+object-fit: cover;
+position: relative;
 }
 
 .auth-layout {
@@ -53,20 +74,11 @@ h1 {
   font-size: 2rem;
   justify-content: center;
   line-height: 28px;
-  max-width: 100%;
   padding: 14px 22px;
   text-decoration: none;
   transition: all 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
-  width: 20%;
-}
-
-.auth-layout h1 {
-  font-size: 8rem;
-  font-family: "harry_pregular";
-  margin-bottom: 20px;
+  
 }
 
 .auth-layout p {
@@ -129,6 +141,11 @@ h1 {
  height: 30px;
 }
 
+.search-bar input {
+  background-color: rgba(240, 240, 240, 0.26);
+  border-radius: 16px;
+  box-sizing: border-box;
+}
 
 .profile-container {
   height: 100vh;
@@ -172,7 +189,7 @@ h1 {
   border: 1px solid #dfdfdf;
   border-radius: 16px;
   box-sizing: border-box;
-  color: #0e1000;
+  color: #fefefe;
   display: flex;
   font-family: "harry_pregular", sans-serif;
   font-size: 2rem;
@@ -209,14 +226,14 @@ h1 {
     content: "";
     background: linear-gradient(
       45deg,
-      #4f0202,
+      #7c9adc,
       #6616654d,
-      #928f03,
-      #ab2f02,
-      #015d4e,
-      #002bff,
-      #7a00ff,
-      #033a6d,
+      #ebebe6,
+      #1e34dd,
+      #333f8c,
+      #04afd6,
+      #065fbd,
+      #0f2fe6,
       #1b0000
     );
     position: absolute;
@@ -229,7 +246,7 @@ h1 {
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     animation: glowing-button-85 20s linear infinite;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 10s ease-in-out;
     border-radius: 10px;
   }
   
@@ -327,7 +344,7 @@ h1 {
   background-color: rgb(83, 83, 83);
   text-decoration: none;
   font-size: 10px;
-  font-style: sans-serif;
+  font-family: sans-serif;
   color: whitesmoke;
   border-radius: 10px;
   padding: 10px 20px;
@@ -343,7 +360,7 @@ h1 {
   min-height: 100vh;
   background-color: black;
   color: whitesmoke;
-  font-style: sans-serif;
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -389,24 +406,6 @@ h1 {
 .my-potions-page a:hover {
   color: rgb(139, 139, 139);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media screen and (max-width: 768px) {

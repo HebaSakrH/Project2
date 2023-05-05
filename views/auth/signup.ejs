@@ -1,6 +1,9 @@
+<!-- <header id="signup-image">
+  <img style="object-fit: cover;" src="/images/train.jpg">
+</header> -->
+<div id="signup-background">
 <div class="auth-layout">
   <h1>Signup</h1>
-
     <form method="POST" action="/auth/signup" enctype="multipart/form-data">
       <label>Username:</label>
       <input name="username" type="text" placeholder="name" required />
@@ -10,7 +13,6 @@
       <input type="file" name="imageUrl" accept="image/png, image/jpg" required />
       <button type="submit">Signup</button>
     </form>
-
     <% if (typeof errorMessage !== 'undefined') { %>
     <p style="color: red"><%= errorMessage %></p>
     <% } %>

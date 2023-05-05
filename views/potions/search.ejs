@@ -1,5 +1,7 @@
+
+<div class="auth-layout">
 <% if (!findPotion || findPotion.length === 0) { %>
-<p style="color: red"> Potion Does Not Exist but You can Create it!</p>
+<p style="color: rgb(176, 2, 2)"> Potion Does Not Exist but You can Create it!</p>
 <% } else { %>
 <ul>
   <% findPotion.forEach((potion) => { %>
@@ -10,3 +12,4 @@
 <% } %> <% if (typeof errorMessage !== 'undefined') { %>
 <p style="color: red"><%= errorMessage %></p>
 <% } %>
+</div>
