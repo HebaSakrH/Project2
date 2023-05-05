@@ -1,0 +1,99 @@
+# Description:
+
+Application developed for Harry Potter world fans to create their own potions.
+
+# User stories:
+
+- home page: on this page, the users are welcome and can signup or log in;
+- signup: on this page, users inform their user name and password and upload a profile picture. If the password is not strong enough, the user is informed by a message on the page.
+- login: on this page, they can provide their username and password as an authentication procedure. If the username or password is incorrect, the user is informed by a message on the page.
+- profile: here, the user can see a navigation bar at the top that can lead them to other pages and log out. Below is the profile picture, button/links and search bar to navigate through the application, edit the profile and be sorted by the Sorting Hat to a Hogwarts House.
+- create potions button/link: this is the most important feature that leads the user to another page to start to have fun by creating their own potions. The user has to inform the potion title, ingredients and difficulty level. Their potions are saved in the database and can be updated.
+- see all potion button/link: accessing it, the user can see potions created by other users.
+
+# Routes
+
+- GET /
+  renders index.ejs - home page
+
+- POST /signup
+  renders auth/login or redirects to auth/signup
+
+- GET /login
+  renders auth/login
+
+- POST /login
+  redirects to profile or renders auth/login
+
+- GET /logout
+  redirects to home page
+
+- GET /profile
+  renders profile
+
+- POST /profile
+  redirects to profile to add random house or show the form to update user name and profile picture
+
+- POST /sort-house
+  redirects to profile and update the house in the database
+
+- GET /create
+  renders potions/create
+
+- POST /create
+  redirects to /potions/newPotion.\_id and create a new potion in the database
+
+- GET /my-potions
+  renders potions/my-potions retriving all user's potions from the database
+
+- GET /my-potions/:potionID
+  redirects to /potions/potion.\_id
+
+- GET /search
+  renders potions/search with the potion added to the search bar
+
+- GET /:potionId
+  renders potions/one
+
+- POST /:potionId
+  redirects to /potions/editPotion.\_id and update potion in the database
+
+- GET /:potionId/delete
+  redirects to /potions and delete from the database
+
+# Models
+
+- userSchema = new Schema({username: {type: String,trim: true,required: false, unique: true,},
+  passwordHash: {type: String, required: true},
+  house: {type: String, default: 'No house yet', enum: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin', 'No house yet'],},
+  imageUrl: {type: String,},
+  }
+
+- potionSchema = new Schema({title: {type: String, required: true, trim: true,},
+  ingredients: {type: [String], required: true, trim: true, },
+  difficulty: {type: String, enum: ['any muggle could make it', 'Hogwarts student level', 'professor Snape level'],},
+  createdBy: {type: Schema.Types.ObjectId, ref: "User" }
+  },
+
+# Backlog
+
+- Add a new relationship between users, so they can interact with each other's potions by commenting or rating it;
+- Add some way to generate a score for potions added, potions that were less asked for being updated by other users;
+- Add a racking to show the 'Potions Master', 'Potions Expert', and 'Potions Begginer', for example;
+- Add background information about this application had been a project from the Ministry of Magic and makes the user play with the idea of being part of Harry Potter's magic world;
+- Add a memory game so that the user can play a bit with the ingredients and potions titles;
+- Add special effects related to the potions, like some explosion or transform the user temporarily.
+
+# Links
+
+- Trello:
+  https://trello.com/b/tsC835Ec/harry-potions
+
+- Github
+  https://github.com/HebaSakrH/Project2
+
+- Adaptable
+ https://harry-potions.adaptable.app/
+
+- Slides
+  https://docs.google.com/presentation/d/1ZGflPXr0g_akJdlVxzd3zS73UEUK3pwlZNXai3o7X7U/edit#slide=id.p
